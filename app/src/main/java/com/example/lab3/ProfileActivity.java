@@ -29,9 +29,9 @@ public class ProfileActivity extends AppCompatActivity {
 
         //This gets you the object nextPage from FirstActivity.java
         Intent intent = getIntent();
-        String email = intent.getStringExtra("EMAIL");
+        //String email = intent.getStringExtra("EMAIL");
         EditText emailText = findViewById(R.id.emailInput);
-        emailText.setText(email);
+        emailText.setText(intent.getStringExtra("EMAIL"));
 
         ImageButton imgBtn = findViewById(R.id.imgButton);
         imgBtn.setOnClickListener( click -> {

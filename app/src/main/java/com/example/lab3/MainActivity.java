@@ -42,21 +42,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
 
-//        prefs = getSharedPreferences("FileName", Context.MODE_PRIVATE);
-//        String savedString = prefs.getString("emailAdd", "Default Value");
-//        EditText typeField = findViewById(R.id.emailID);
-//        typeField.setText(savedString);
-//
-//        Button saveButton = findViewById(R.id.logButton);
-//        saveButton.setOnClickListener(bt ->
-//                {
-//                    // creates a transition to load profileActivity.java
-//                    Intent goToProfile  = new Intent(MainActivity.this,ProfileActivity.class);
-//                    //goToProfile.putExtra("EMAIL",typeField.getText().toString());
-//                    saveSharedPrefs(typeField.getText().toString());
-//
-//                    startActivity(goToProfile);    //go to SecondActivity.java
-//                });
     }
 
 
