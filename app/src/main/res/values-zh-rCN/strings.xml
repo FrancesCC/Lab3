@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lab3</string>
+    <string name="hello">输入你的地址：</string>
+    <string name="edit">此处输入</string>
+    <string name="pwd">输入你的密码：</string>
+    <string name="login">登录</string>
+    <string name="profile">你的信息</string>
+    <string name="name">你的名字：</string>
+    <string name="email2">你的邮箱：</string>
+    <string name="picture">你的照片：</string>
+    <string name="addName">输入你的姓名</string>
+    <string name="addEmail">输入你的邮箱</string>
+    <string name="buttonToPicture">点击按钮拍照</string>
+</resources>

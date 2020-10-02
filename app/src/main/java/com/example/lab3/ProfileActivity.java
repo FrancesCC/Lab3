@@ -2,9 +2,7 @@ package com.example.lab3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -16,7 +14,7 @@ import android.widget.ImageView;
 public class ProfileActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    ImageView mImageButton;
+    ImageButton mImageButton;
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
 
 
@@ -29,17 +27,13 @@ public class ProfileActivity extends AppCompatActivity {
 
         //This gets you the object nextPage from FirstActivity.java
         Intent intent = getIntent();
-        //String email = intent.getStringExtra("EMAIL");
+
         EditText emailText = findViewById(R.id.emailInput);
         emailText.setText(intent.getStringExtra("EMAIL"));
 
-        ImageButton imgBtn = findViewById(R.id.imgButton);
-        imgBtn.setOnClickListener( click -> {
-            Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-            }
-            finish();
+        mImageButton = findViewById(R.id.imgButton);
+        mImageButton.setOnClickListener( click -> {
+            dispatchTakePictureIntent();
         });
 
     }
