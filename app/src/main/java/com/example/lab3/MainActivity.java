@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         prefs = getSharedPreferences("FileName", Context.MODE_PRIVATE);
-        String savedString = prefs.getString("emailAdd", "Default Value");
+        String savedString = prefs.getString("emailAdd", "");
         EditText typeField = findViewById(R.id.emailID);
         typeField.setText(savedString);
 
@@ -41,7 +41,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-
+        prefs = getSharedPreferences("FileName", Context.MODE_PRIVATE);
+        String savedString = prefs.getString("emailAdd", "");
+        EditText typeField = findViewById(R.id.emailInput);
+        typeField.setText(savedString);
     }
 
 
@@ -50,6 +53,5 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("emailAdd", stringToSave);
         editor.commit();
     }
-
 
 }
