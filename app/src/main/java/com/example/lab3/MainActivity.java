@@ -25,11 +25,11 @@ public class MainActivity extends AppCompatActivity {
         typeField.setText(savedString);
 
         Button saveButton = findViewById(R.id.logButton);
+        Intent goToProfile  = new Intent(MainActivity.this,ProfileActivity.class);
 
         saveButton.setOnClickListener(bt ->
                 {
                     // creates a transition to load profileActivity.java
-                    Intent goToProfile  = new Intent(MainActivity.this,ProfileActivity.class);
                     goToProfile.putExtra("EMAIL", savedString);
                     saveSharedPrefs(typeField.getText().toString());
 
@@ -42,9 +42,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         prefs = getSharedPreferences("FileName", Context.MODE_PRIVATE);
-        String savedString = prefs.getString("emailAdd", "");
-        EditText typeField = findViewById(R.id.emailInput);
-        typeField.setText(savedString);
+        EditText typeField = findViewById(R.id.emailID);
+        saveSharedPrefs(typeField.getText().toString()); //save the string to next page.
     }
 
 
