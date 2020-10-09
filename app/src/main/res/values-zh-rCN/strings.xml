@@ -11,5 +11,6 @@
     <string name="picture">你的照片：</string>
     <string name="addName">输入你的姓名</string>
     <string name="addEmail">输入你的邮箱</string>
+    <string name="chatBtn"> 进入聊天 </string>
     <string name="buttonToPicture">点击按钮拍照</string>
 </resources>

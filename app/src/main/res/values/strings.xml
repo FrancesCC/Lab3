@@ -11,5 +11,6 @@
     <string name="picture">Your picture: </string>
     <string name="addName">Enter your name </string>
     <string name="addEmail">Enter your email </string>
+    <string name="chatBtn"> Go to chat </string>
     <string name="buttonToPicture">Click the button above to take a picture</string>
 </resources>
