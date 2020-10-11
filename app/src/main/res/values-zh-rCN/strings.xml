@@ -12,5 +12,13 @@
     <string name="addName">输入你的姓名</string>
     <string name="addEmail">输入你的邮箱</string>
     <string name="chatBtn"> 进入聊天 </string>
+    <string name="sdBtn"> 发送 </string>
+    <string name="rcvBtn"> 接收 </string>
+    <string name="chatType"> 请输入 </string>
+    <string name="alertYes"> 确定 </string>
+    <string name="alertNo"> 取消 </string>
+    <string name="selectRow"> 选中的行:  </string>
+    <string name="selectDbId"> 数据库账号:  </string>
+    <string name="alertMsg"> 确定要删除此行么？ </string>
     <string name="buttonToPicture">点击按钮拍照</string>
 </resources>

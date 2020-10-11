@@ -12,5 +12,13 @@
     <string name="addName">Enter your name </string>
     <string name="addEmail">Enter your email </string>
     <string name="chatBtn"> Go to chat </string>
+    <string name="sdBtn"> SEND </string>
+    <string name="rcvBtn"> RECEIVE </string>
+    <string name="chatType"> Type here </string>
+    <string name="alertYes"> Yes </string>
+    <string name="alertNo"> Cancel </string>
+    <string name="alertMsg"> Do you want to delete this? </string>
+    <string name="selectRow"> The selected row is:  </string>
+    <string name="selectDbId"> The database id:   </string>
     <string name="buttonToPicture">Click the button above to take a picture</string>
 </resources>
