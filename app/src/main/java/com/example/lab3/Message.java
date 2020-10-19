@@ -6,6 +6,7 @@ public class Message {
 
     private String chatMessage;
     private boolean isLeft;
+    private long databaseID;
 
     public Message(){
         super();
