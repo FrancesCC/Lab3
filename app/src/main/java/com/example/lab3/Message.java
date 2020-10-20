@@ -1,36 +1,37 @@
 package com.example.lab3;
 
-import android.text.Editable;
-
 public class Message {
 
     private String chatMessage;
-    private boolean isLeft;
-    private long databaseID;
+    private int isLeft;
+    private long id;
 
     public Message(){
         super();
     }
 
-    public Message(String chatMessage, boolean isLeft){
+    public Message(String chatMessage, int isLeft, long id){
         super();
         this.chatMessage = chatMessage;
         this.isLeft = isLeft;
+        this.id = id;
     }
 
-    public void setMessage(String chatMessage) {
-        this.chatMessage = chatMessage;
-    }
 
     public String getMessage(){
         return chatMessage;
     }
 
-    public void setType(boolean isLeft) {
+    public void setType(int isLeft) {
         this.isLeft = isLeft;
     }
 
-    public boolean getType() {
+    public int getType() {
         return isLeft;
+    }
+
+    public long getID()
+    {
+        return id;
     }
 }
