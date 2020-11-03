@@ -190,7 +190,7 @@ public class ChatRoomActivity extends AppCompatActivity{
             int direction = results.getInt(directionIndex);
             long id = results.getLong(idIndex);
 
-            printCursor( results, db.getVersion());
+            printCursor(results, db.getVersion());
 
             //add the new Message to the arrayList
             elements.add(new Message(message,direction,id));
@@ -210,15 +210,16 @@ public class ChatRoomActivity extends AppCompatActivity{
 
     public void printCursor(Cursor c, int version){
 
+
         int messageIndex = c.getColumnIndex(MyOpener.COL_MESSAGE);
         int directionIndex = c.getColumnIndex(MyOpener.COL_DIRECTION);
         String message = c.getString(messageIndex);
         int direction = c.getInt(directionIndex);
         Log.d("Version number: ",String.valueOf(version));  //get version number
         Log.d("Number of column : ", String.valueOf(c.getColumnCount()));  //get column number
-        Log.d("Name of the columns", String.valueOf(c.getColumnIndex(message)));  //get column names
+        Log.d("Name of the columns", String.valueOf("column name : "+c.getColumnName(messageIndex)+ " and :"+c.getColumnName(directionIndex)));  //get column names
         Log.d("Number of rows: ", String.valueOf(c.getPosition()));  //get number of rows
-        Log.d("each row of result: ",message + String.valueOf(direction)); //each row of result
+        Log.d("each row of result: ",message +" direction: "+ String.valueOf(direction)); //each row of result
 
 
 

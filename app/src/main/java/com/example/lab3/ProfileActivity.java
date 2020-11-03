@@ -10,7 +10,6 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 
 public class ProfileActivity extends AppCompatActivity {
 
