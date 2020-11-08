@@ -149,23 +149,6 @@ public class ChatRoomActivity extends AppCompatActivity{
                 sendView.setText(currentRow.getMessage());
             }
 
-//            if(elements.get(position).getType() == 1){  //if it's true
-//                thisRow = inflater.inflate(R.layout.receive_layout, parent,false);
-//                Message currentRow = getItem(position);
-//
-//                TextView receiveView = thisRow.findViewById(R.id.receiveText);
-//                //receiveView.setText(elements.get(position).getMessage());
-//                receiveView.setText(currentRow.getMessage());
-//
-//            }else{
-//                thisRow = inflater.inflate(R.layout.send_layout, parent,false);
-//                Message currentRow = getItem(position);
-//
-//                TextView sendView = thisRow.findViewById(R.id.sendText);
-//                //sendView.setText(elements.get(position).getMessage());
-//                sendView.setText(currentRow.getMessage());
-//            }
-
             return thisRow;
         }
     }
@@ -195,7 +178,6 @@ public class ChatRoomActivity extends AppCompatActivity{
             //add the new Message to the arrayList
             elements.add(new Message(message,direction,id));
         }
-
     }
 
     //last week we returned (long) position. Now we return the object's database id that we get from line 71
@@ -210,18 +192,15 @@ public class ChatRoomActivity extends AppCompatActivity{
 
     public void printCursor(Cursor c, int version){
 
-
         int messageIndex = c.getColumnIndex(MyOpener.COL_MESSAGE);
         int directionIndex = c.getColumnIndex(MyOpener.COL_DIRECTION);
         String message = c.getString(messageIndex);
         int direction = c.getInt(directionIndex);
-        Log.d("Version number: ",String.valueOf(version));  //get version number
-        Log.d("Number of column : ", String.valueOf(c.getColumnCount()));  //get column number
-        Log.d("Name of the columns", String.valueOf("column name : "+c.getColumnName(messageIndex)+ " and :"+c.getColumnName(directionIndex)));  //get column names
-        Log.d("Number of rows: ", String.valueOf(c.getPosition()));  //get number of rows
-        Log.d("each row of result: ",message +" direction: "+ String.valueOf(direction)); //each row of result
-
-
+//        Log.d("Version number: ",String.valueOf(version));  //get version number
+//        Log.d("Number of column : ", String.valueOf(c.getColumnCount()));  //get column number
+//        Log.d("Name of the columns", String.valueOf("column name : "+c.getColumnName(messageIndex)+ " and :"+c.getColumnName(directionIndex)));  //get column names
+//        Log.d("Number of rows: ", String.valueOf(c.getPosition()));  //get number of rows
+//        Log.d("each row of result: ",message +" direction: "+ String.valueOf(direction)); //each row of result
 
         //db.getVersion();
     }

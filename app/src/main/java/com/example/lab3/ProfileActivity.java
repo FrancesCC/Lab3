@@ -20,7 +20,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.e(ACTIVITY_NAME, "In function: onCreate");
+        //Log.e(ACTIVITY_NAME, "In function: onCreate");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
@@ -36,41 +36,45 @@ public class ProfileActivity extends AppCompatActivity {
             dispatchTakePictureIntent();
         });
 
+        // go to chat
         Button chatBt = findViewById(R.id.chatButton);
         Intent goToChat  = new Intent(ProfileActivity.this,ChatRoomActivity.class);
-
         chatBt.setOnClickListener( bt -> startActivity(goToChat)); // go to chat activity
 
+        // go to weather
+        Button weatherBtn = (Button)findViewById(R.id.weatherButton);
+        Intent goToWeather  = new Intent(ProfileActivity.this,WeatherForecast.class);
+        weatherBtn.setOnClickListener(bt -> startActivity(goToWeather));
     }
 
     @Override
     protected void onStart() {
-        Log.e(ACTIVITY_NAME, "In function: onStart");
+        //Log.e(ACTIVITY_NAME, "In function: onStart");
         super.onStart();
     }
 
     @Override
     protected void onResume() {
-        Log.e(ACTIVITY_NAME, "In function: onResume");
+        //Log.e(ACTIVITY_NAME, "In function: onResume");
         super.onResume();
     }
 
     @Override
     protected void onPause() {
-        Log.e(ACTIVITY_NAME, "In function: onPause");
+        //Log.e(ACTIVITY_NAME, "In function: onPause");
         super.onPause();
     }
 
     @Override
     protected void onDestroy() {
-        Log.e(ACTIVITY_NAME, "In function: onDestroy");
+        //Log.e(ACTIVITY_NAME, "In function: onDestroy");
         super.onDestroy();
     }
 
     //sending data back to previous page
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.e(ACTIVITY_NAME, "In function: onActivityResult");
+        //Log.e(ACTIVITY_NAME, "In function: onActivityResult");
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {

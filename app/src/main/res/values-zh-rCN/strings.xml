@@ -20,5 +20,10 @@
     <string name="selectRow"> 选中的行:  </string>
     <string name="selectDbId"> 数据库账号:  </string>
     <string name="alertMsg"> 确定要删除此行么？ </string>
+    <string name="weatherBtn">天气预报 </string>
     <string name="buttonToPicture">点击按钮拍照</string>
+    <string name="currTemperature">当前温度为:</string>
+    <string name="minTemperature">最低温度为:</string>
+    <string name="maxTemperature">最高温度为:</string>
+    <string name="uvRating">紫外线指数:</string>
 </resources>
