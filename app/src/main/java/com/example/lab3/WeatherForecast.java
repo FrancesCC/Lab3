@@ -141,10 +141,6 @@ public class WeatherForecast extends AppCompatActivity {
 
                     bm = BitmapFactory.decodeStream(fis);
 
-//                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//                    bm.compress(Bitmap.CompressFormat.PNG, 80, baos);
-
-                    //getResult.add(String.valueOf(bm));
                     publishProgress(75);
                 }
                 else{
@@ -188,11 +184,11 @@ public class WeatherForecast extends AppCompatActivity {
         //Type3
         public void onPostExecute(ArrayList<String> value)
         {
-            Log.i("value 1",value.get(0));
             curTemp.setText(getResources().getString(R.string.currTemperature)+ value.get(0));
             minText.setText(getResources().getString(R.string.minTemperature)+value.get(1));
             maxText.setText(getResources().getString(R.string.maxTemperature)+value.get(2));
-            uvText.setText(getResources().getString(R.string.uvRating)+value.get(3));
+
+           // uvText.setText(getResources().getString(R.string.uvRating)+value.get(3));
             img.setImageBitmap(bm);
 
             pb.setVisibility(View.INVISIBLE);
@@ -203,5 +199,5 @@ public class WeatherForecast extends AppCompatActivity {
             File file = getBaseContext().getFileStreamPath(fname);
             return file.exists();
         }
-                                                }
+    }
 }
