@@ -1,56 +1,46 @@
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+   >
 
-    <LinearLayout
+    <ListView
+        android:id="@+id/myListView"
+        android:layout_width="300dp"
+        android:background="#FFFFCC"
+        android:layout_height="match_parent" />
+
+
+    <FrameLayout
+        android:id="@+id/fragmentLocation"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CCCC99"
+        android:layout_toRightOf="@+id/myListView"/>
+
+    <Button
+        android:id="@+id/rcvButton"
+        android:layout_width="80dp"
+        android:layout_height="36dp"
+        android:text="@string/rcvBtn"
+        android:layout_alignParentBottom="true"/>
+
+    <EditText
+        android:id="@+id/chatText"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="0.72"
-        android:weightSum="1">
+        android:hint="@string/chatType"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/rcvButton"/>
 
-        <ListView
-            android:id="@+id/myListView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="80dp"
+        android:layout_height="38dp"
+        android:text="@string/sdBtn"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/chatText"/>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="0"
-        android:orientation="horizontal"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp"
-        android:layout_marginBottom="3dp" >
-
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:layout_weight="2"
-            android:text="@string/sdBtn" />
-
-        <EditText
-            android:id="@+id/chatText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/chatType" />
-
-        <Button
-            android:id="@+id/rcvButton"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:layout_weight="2"
-            android:text="@string/rcvBtn" />
-
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

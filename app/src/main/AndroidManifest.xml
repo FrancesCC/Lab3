@@ -16,15 +16,10 @@
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ProfileActivity">
-        </activity>
-
-        <activity android:name=".ChatRoomActivity">
-        </activity>
-
-        <activity android:name=".WeatherForecast"
-            tools:ignore="Instantiatable">
-        </activity>
+        <activity android:name=".ProfileActivity"/>
+        <activity android:name=".ChatRoomActivity"/>
+        <activity android:name=".EmptyActivity"/>
+        <activity android:name=".WeatherForecast" />
 
         <activity android:name=".MainActivity">
             <intent-filter>

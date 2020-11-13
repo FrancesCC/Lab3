@@ -1,6 +1,7 @@
 package com.example.lab3;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -21,7 +22,9 @@ import java.util.List;
 
 public class ChatRoomActivity extends AppCompatActivity{
 
-    ListAdapter adaptor;
+    public static final String ITEM_SELECTED = "ITEM";
+    public static final String ITEM_ID = "ID";
+    public static final String ITEM_ISSENT = "ITEM_ISSENT";
     private List<Message> elements = new ArrayList<>();
     SQLiteDatabase db;
 
@@ -35,10 +38,10 @@ public class ChatRoomActivity extends AppCompatActivity{
         ListView myList = (ListView)findViewById(R.id.myListView);
 
         loadDataFromDatabase(); //get any previously saved Contact objects
+        boolean isTablet = findViewById(R.id.fragmentLocation) != null;
 
-        adaptor = new ListAdapter();
+        ListAdapter adaptor = new ListAdapter();
         myList.setAdapter(adaptor);
-
 
         // set send message to elements
         Button sendBtn = (Button)findViewById(R.id.sendButton);
@@ -79,28 +82,65 @@ public class ChatRoomActivity extends AppCompatActivity{
         });
 
 
+        // on click goes to next page.
+        myList.setOnItemClickListener( (list, view, position, id) -> {
+
+            Bundle dataToPass = new Bundle();
+            dataToPass.putString(ITEM_SELECTED, String.valueOf(elements.get(position)));
+            dataToPass.putLong(ITEM_ID, id);
+            dataToPass.putInt(ITEM_ISSENT,elements.get(position).getType());
 
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(ChatRoomActivity.this);
+            if(isTablet)  //run on the tablet
+            {
+                DetailsFragment dFragment = new DetailsFragment(); //add a DetailFragment
+                dFragment.setArguments( dataToPass ); //pass it a bundle for information
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragmentLocation,dFragment)
+                        .commit();
+            }
+            else  // running on the phone
+            {
+                Intent emptyActivity = new Intent(ChatRoomActivity.this, EmptyActivity.class);
+                emptyActivity.putExtras(dataToPass); //send data to next activity
+                startActivity(emptyActivity); //make the transition
 
-        myList.setOnItemClickListener( (parent, view, position, id) -> {
+            }
 
+
+        });
+
+        // long on click to delete it
+        myList.setOnItemLongClickListener((list, view, position, id) ->{
             Message selectedItem = elements.get(position);
 
-
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getResources().getString(R.string.alertMsg));
             builder.setMessage(getResources().getString(R.string.selectRow) + position +"\n"+getResources().getString(R.string.selectDbId) + getItemId(position))
                     .setPositiveButton(getResources().getString(R.string.alertYes),(click,b)-> {
 
+                        if(isTablet){
+                            Bundle dataToPass = new Bundle();
+                            dataToPass.getBundle(ITEM_ISSENT);
+                            DetailsFragment dFragment = new DetailsFragment(); //add a DetailFragment
+
+                            dFragment.setArguments( dataToPass ); //pass it a bundle for information
+                            getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .remove(dFragment)
+                                    .commit();
+                        }
                         deleteContact(selectedItem); //remove the selected message from database.
                         elements.remove(position); //also delete from list
                         adaptor.notifyDataSetChanged();
+
 
                     })
                     .setNegativeButton(getResources().getString(R.string.alertNo),null);
             AlertDialog alert = builder.create();
             alert.show();
-
+            return true;
         });
     }
 
@@ -204,6 +244,8 @@ public class ChatRoomActivity extends AppCompatActivity{
 
         //db.getVersion();
     }
+
+    public void onItemLongClick(){}
 }
 
 

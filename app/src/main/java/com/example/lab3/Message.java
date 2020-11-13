@@ -17,6 +17,9 @@ public class Message {
         this.id = id;
     }
 
+    public String toString() {
+        return chatMessage;
+    }
 
     public String getMessage(){
         return chatMessage;
