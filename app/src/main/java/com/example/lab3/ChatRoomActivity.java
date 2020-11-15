@@ -1,5 +1,8 @@
 package com.example.lab3;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,6 +19,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,7 +94,6 @@ public class ChatRoomActivity extends AppCompatActivity{
             dataToPass.putLong(ITEM_ID, id);
             dataToPass.putInt(ITEM_ISSENT,elements.get(position).getType());
 
-
             if(isTablet)  //run on the tablet
             {
                 DetailsFragment dFragment = new DetailsFragment(); //add a DetailFragment
@@ -105,26 +108,25 @@ public class ChatRoomActivity extends AppCompatActivity{
                 Intent emptyActivity = new Intent(ChatRoomActivity.this, EmptyActivity.class);
                 emptyActivity.putExtras(dataToPass); //send data to next activity
                 startActivity(emptyActivity); //make the transition
-
             }
-
-
         });
 
         // long on click to delete it
         myList.setOnItemLongClickListener((list, view, position, id) ->{
-            Message selectedItem = elements.get(position);
 
+            Bundle dataToPass = new Bundle();
+            dataToPass.putString(ITEM_SELECTED, String.valueOf(elements.get(position)));
+            dataToPass.putLong(ITEM_ID, id);
+            dataToPass.putInt(ITEM_ISSENT,elements.get(position).getType());
+
+            Message selectedItem = elements.get(position);
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getResources().getString(R.string.alertMsg));
             builder.setMessage(getResources().getString(R.string.selectRow) + position +"\n"+getResources().getString(R.string.selectDbId) + getItemId(position))
                     .setPositiveButton(getResources().getString(R.string.alertYes),(click,b)-> {
 
                         if(isTablet){
-                            Bundle dataToPass = new Bundle();
-                            dataToPass.getBundle(ITEM_ISSENT);
                             DetailsFragment dFragment = new DetailsFragment(); //add a DetailFragment
-
                             dFragment.setArguments( dataToPass ); //pass it a bundle for information
                             getSupportFragmentManager()
                                     .beginTransaction()
@@ -134,8 +136,6 @@ public class ChatRoomActivity extends AppCompatActivity{
                         deleteContact(selectedItem); //remove the selected message from database.
                         elements.remove(position); //also delete from list
                         adaptor.notifyDataSetChanged();
-
-
                     })
                     .setNegativeButton(getResources().getString(R.string.alertNo),null);
             AlertDialog alert = builder.create();

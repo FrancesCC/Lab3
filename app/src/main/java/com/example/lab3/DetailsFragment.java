@@ -65,4 +65,6 @@ public class DetailsFragment extends Fragment {
         //context will either be FragmentExample for a tablet, or EmptyActivity for phone
         parentActivity = (AppCompatActivity)context;
     }
+
+
 }
