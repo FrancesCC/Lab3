@@ -130,6 +130,7 @@ public class ChatRoomActivity extends AppCompatActivity{
                             dFragment.setArguments( dataToPass ); //pass it a bundle for information
                             getSupportFragmentManager()
                                     .beginTransaction()
+                                    .replace(R.id.fragmentLocation,dFragment)
                                     .remove(dFragment)
                                     .commit();
                         }
