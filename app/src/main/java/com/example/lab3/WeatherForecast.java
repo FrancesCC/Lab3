@@ -193,6 +193,7 @@ public class WeatherForecast extends AppCompatActivity {
 
             pb.setVisibility(View.INVISIBLE);
 
+
         }
 
         public boolean fileExistance(String fname){

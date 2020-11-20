@@ -45,6 +45,8 @@ public class ProfileActivity extends AppCompatActivity {
         Button weatherBtn = (Button)findViewById(R.id.weatherButton);
         Intent goToWeather  = new Intent(ProfileActivity.this,WeatherForecast.class);
         weatherBtn.setOnClickListener(bt -> startActivity(goToWeather));
+
+
     }
 
     @Override
