@@ -26,6 +26,17 @@
     <string name="minTemperature">The minimum temperature is:</string>
     <string name="maxTemperature">The maximum temperature is:</string>
     <string name="uvRating">The UV rating is:</string>
+    <string name="toolbarString">Go to Toolbar page</string>
+    <string name="firstMenuString">Click on first item</string>
+    <string name="secondMenuString">Click on second item</string>
+    <string name="thirdMenuString">Click on third item</string>
+    <string name="fourMenuString">Click on fourth item</string>
+    <string name="open">OPEN</string>
+    <string name="close">CLOSE</string>
+    <string name="chatString">Chat Page</string>
+    <string name="weatherString">Weather Page</string>
+    <string name="backToLoginString">Back to Login</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 </resources>

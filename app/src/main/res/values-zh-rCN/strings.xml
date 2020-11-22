@@ -26,4 +26,14 @@
     <string name="minTemperature">最低温度为:</string>
     <string name="maxTemperature">最高温度为:</string>
     <string name="uvRating">紫外线指数:</string>
+    <string name="toolbarString">进入工具栏页面</string>
+    <string name="firstMenuString">点击了第一个</string>
+    <string name="secondMenuString">点击了第二个</string>
+    <string name="thirdMenuString">点击了第三个</string>
+    <string name="fourMenuString">点击了第四个</string>
+    <string name="open">开</string>
+    <string name="close">关</string>
+    <string name="chatString">聊天界面</string>
+    <string name="weatherString">天气界面</string>
+    <string name="backToLoginString">返回登录界面</string>
 </resources>

@@ -12,6 +12,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
     SharedPreferences prefs = null;  //obj
+    static final int REQUEST_PROFILE_VALUE = 11;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,5 +53,6 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("emailAdd", stringToSave);
         editor.commit();
     }
+
 
 }

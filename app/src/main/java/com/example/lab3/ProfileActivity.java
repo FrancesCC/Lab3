@@ -1,6 +1,8 @@
 package com.example.lab3;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -11,9 +13,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.google.android.material.navigation.NavigationView;
+
 public class ProfileActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
+    static final int REQUEST_TOOL_BAR = 500;
     ImageButton mImageButton;
     public static final String ACTIVITY_NAME = "PROFILE_ACTIVITY";
 
@@ -24,6 +29,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+
 
         //This gets you the object nextPage from FirstActivity.java
         Intent intent = getIntent();
@@ -46,6 +53,10 @@ public class ProfileActivity extends AppCompatActivity {
         Intent goToWeather  = new Intent(ProfileActivity.this,WeatherForecast.class);
         weatherBtn.setOnClickListener(bt -> startActivity(goToWeather));
 
+        //go to toolbar page
+        Button toolbarBtn = (Button)findViewById(R.id.toolBarButton);
+        Intent goToToolbar = new Intent(ProfileActivity.this,TestToolbar.class);
+        toolbarBtn.setOnClickListener(bt -> startActivityForResult(goToToolbar,REQUEST_TOOL_BAR));
 
     }
 
@@ -83,6 +94,13 @@ public class ProfileActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             mImageButton.setImageBitmap(imageBitmap);
+        }
+
+        if(requestCode == REQUEST_TOOL_BAR && resultCode == RESULT_OK){
+
+            Intent backToLogin = new Intent(ProfileActivity.this, MainActivity.class);
+            this.startActivity(backToLogin);
+            this.finish();
         }
     }
 

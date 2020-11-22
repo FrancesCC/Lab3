@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menu_goChatID"
+        android:title="@string/chatString"
+        android:icon="@drawable/chat"
+        android:orderInCategory="1"
+        app:showAsAction="always"/>  <!-- This uses showAsAction=always, so look at icon= parameter -->
+
+    <item android:id="@+id/menu_weatherID"
+        android:orderInCategory="2"
+        android:icon="@drawable/weather"
+        app:showAsAction="always|collapseActionView"
+        android:title="@string/weatherString"/>    <!-- This uses showAsAction=always, so look at icon= parameter -->
+
+
+    <item android:id="@+id/menu_goLogID"
+        android:icon="@drawable/login"
+        android:title="@string/backToLoginString"
+        app:showAsAction="always|collapseActionView"
+        android:orderInCategory="3"/> <!-- This uses showAsAction=never, so look at title= parameter -->
+
+    <item android:id="@+id/itemFour"
+        android:title="@string/fourMenuString"
+        app:showAsAction="never"
+        android:orderInCategory="4"/> <!-- This uses showAsAction=never, so look at title= parameter -->
+
+</menu>
